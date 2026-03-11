@@ -1,0 +1,30 @@
+# 创建 React 项目（JavaScript）
+npm create vite@latest my-react-app -- --template react
+
+# 创建 React + TypeScript 项目
+npm create vite@latest my-react-app -- --template react-ts
+
+# 进入项目、安装依赖、启动
+cd my-react-app
+npm install
+npm run dev
+
+
+added 178 packages, and audited 179 packages in 6m
+
+46 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+│
+◇  Starting dev server...
+
+> my-react-app@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 480 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
