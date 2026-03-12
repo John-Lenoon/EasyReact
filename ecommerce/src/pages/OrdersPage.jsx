@@ -1,9 +1,5 @@
 import './OrdersPage.css'
-import "./Header.css"
-import MobileLogoWhite from "../assets/images/mobile-logo-white.png"
-import LogoWhite from "../assets/images/logo-white.png"
-import SearchIcon from "../assets/images/icons/search-icon.png"
-import CartIcon from "../assets/images/icons/cart-icon.png"
+import {Header} from "../component/Header"
 import BuyAgainIcon from "../assets/images/icons/buy-again.png"
 import AthleticCottonSocks6Pairs from "../assets/images/products/athletic-cotton-socks-6-pairs.jpg"
 import AdultsPlainCottonTshirt2PackTeal from "../assets/images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg"
@@ -12,38 +8,8 @@ import IntermediateCompositeBasketball from "../assets/images/products/intermedi
 export function OrdersPage() {
     return (
         <>
-            <div className="header">
-                <div className="left-section">
-                    <a href="/" className="header-link">
-                        {/* 替换 logo-white.png 为导入的变量 */}
-                        <img className="logo" src={LogoWhite} />
-                        <img className="mobile-logo" src={MobileLogoWhite} />
-                    </a>
-                </div>
-
-                <div className="middle-section">
-                    <input className="search-bar" type="text" placeholder="Search" />
-
-                    <button className="search-button">
-                        {/* 替换 search-icon.png 为导入的变量 */}
-                        <img className="search-icon" src={SearchIcon} />
-                    </button>
-                </div>
-
-                <div className="right-section">
-                    <a className="orders-link header-link" href="/orders">
-                        <span className="orders-text">Orders</span>
-                    </a>
-
-                    <a className="cart-link header-link" href="/checkout">
-                        {/* 替换 cart-icon.png 为导入的变量 */}
-                        <img className="cart-icon" src={CartIcon} />
-                        <div className="cart-quantity">3</div>
-                        <div className="cart-text">Cart</div>
-                    </a>
-                </div>
-            </div>
-
+            <title>Orders</title>
+            <Header />
             <div className="orders-page">
                 <div className="page-title">Your Orders</div>
 

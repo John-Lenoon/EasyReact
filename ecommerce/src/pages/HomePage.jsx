@@ -1,10 +1,6 @@
 // 1. 修正：去掉所有导入图片的 { }，用默认导入
 import "./HomePage.css"
-import "./Header.css"
-import LogoWhite from "../assets/images/logo-white.png"
-import MobileLogoWhite from "../assets/images/mobile-logo-white.png"
-import SearchIcon from "../assets/images/icons/search-icon.png"
-import CartIcon from "../assets/images/icons/cart-icon.png"
+import {Header} from "../component/Header"
 import CheckmarkIcon from "../assets/images/icons/checkmark.png"
 
 // 产品图导入（对应你src/assets/images里的文件）
@@ -20,32 +16,7 @@ export function HomePage() {
     return (
     <>
     <title>Ecommerce Project</title>
-    <div className="header">
-      <div className="left-section">
-        <a href="/" className="header-link">
-          <img className="logo" src={LogoWhite} alt="logo" />
-          <img className="mobile-logo" src={MobileLogoWhite} alt="mobile logo" />
-        </a>
-      </div>
-
-      <div className="middle-section">
-        <input className="search-bar" type="text" placeholder="Search" />
-        <button className="search-button">
-          <img className="search-icon" src={SearchIcon} alt="search" />
-        </button>
-      </div>
-
-      <div className="right-section">
-        <a className="orders-link header-link" href="/orders">
-          <span className="orders-text">Orders</span>
-        </a>
-        <a className="cart-link header-link" href="/checkout">
-          <img className="cart-icon" src={CartIcon} alt="cart" />
-          <div className="cart-quantity">3</div>
-          <div className="cart-text">Cart</div>
-        </a>
-      </div>
-    </div>
+    <Header />
 
     <div className="home-page">
       <div className="products-grid">

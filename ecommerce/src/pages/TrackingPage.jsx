@@ -9,6 +9,7 @@ import AthleticCottonSocks6Pairs from "../assets/images/products/athletic-cotton
 export function TrackingPage() {
     return (
         <>
+            <title>Tracking</title>
             <div className="header">
                 <div className="left-section">
                     <a href="/" className="header-link">
