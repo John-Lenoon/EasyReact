@@ -1,10 +1,9 @@
 import './CheckoutPage.css'
 import './CheckoutPage-header.css'
-// 补充导入剩余图片，保持和你一致的命名/路径风格
+
 import Logo from "../assets/images/logo.png"
 import MobileLogo from "../assets/images/mobile-logo.png"
 import CheckoutLockIcon from "../assets/images/icons/checkout-lock-icon.png"
-// 保留你原有导入的商品图片
 import IntermediateCompositeBasketball from "../assets/images/products/intermediate-composite-basketball.jpg"
 import AthleticCottonSocks6Pairs from "../assets/images/products/athletic-cotton-socks-6-pairs.jpg" 
 
