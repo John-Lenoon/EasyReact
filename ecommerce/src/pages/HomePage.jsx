@@ -19,6 +19,7 @@ import Rating40 from "../assets/images/ratings/rating-40.png"
 export function HomePage() {
     return (
     <>
+    <title>Ecommerce Project</title>
     <div className="header">
       <div className="left-section">
         <a href="index.html" className="header-link">
