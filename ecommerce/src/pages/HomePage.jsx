@@ -1,139 +1,74 @@
-// 1. 修正：去掉所有导入图片的 { }，用默认导入
 import "./HomePage.css"
-import {Header} from "../component/Header"
+import { Header } from "../component/Header"
 import CheckmarkIcon from "../assets/images/icons/checkmark.png"
 
-// 产品图导入（对应你src/assets/images里的文件）
-import SocksImg from "../assets/images/products/athletic-cotton-socks-6-pairs.jpg"
-import BasketballImg from "../assets/images/products/intermediate-composite-basketball.jpg"
-import TshirtImg from "../assets/images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg"
+//import.meta.glob
+//这是Vite 专门提供的静态资源批量导入 API（注意：只有 Vite 项目能用，原生 React/Webpack 没有），
+// 它的作用是：根据你写的 “文件匹配模式”，一次性把匹配到的所有文件导入成一个 JavaScript 对象。
+const productImages = import.meta.glob("../assets/images/products/*.jpg", { eager: true, as: "url" })
+const ratingImages = import.meta.glob("../assets/images/ratings/*.png", { eager: true, as: "url" })
 
-// 评分星星图导入
-import Rating45 from "../assets/images/ratings/rating-45.png"
-import Rating40 from "../assets/images/ratings/rating-40.png"
+// 2. 直接用产品数据
+import { products } from "../../starting-code/data/products"
 
 export function HomePage() {
-    return (
+  return (
     <>
-    <title>Ecommerce Project</title>
-    <Header />
+      <title>Ecommerce Project</title>
+      <Header />
 
-    <div className="home-page">
-      <div className="products-grid">
-        {/* 第一个商品 */}
-        <div className="product-container">
-          <div className="product-image-container">
-            <img className="product-image" src={SocksImg} alt="socks" />
-          </div>
-          <div className="product-name limit-text-to-2-lines">
-            Black and Gray Athletic Cotton Socks - 6 Pairs
-          </div>
-          <div className="product-rating-container">
-            <img className="product-rating-stars" src={Rating45} alt="rating" />
-            <div className="product-rating-count link-primary">87</div>
-          </div>
-          <div className="product-price">$10.90</div>
-          <div className="product-quantity-container">
-            <select>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-            </select>
-          </div>
-          <div className="product-spacer"></div>
-          <div className="added-to-cart">
-            <img src={CheckmarkIcon} alt="checkmark" />
-            Added
-          </div>
-          <button className="add-to-cart-button button-primary">
-            Add to Cart
-          </button>
-        </div>
+      <div className="home-page">
+        <div className="products-grid">
+          {products.map((product) => {
+            // 3. 一行代码匹配产品图（简洁）
+            //split("/")
+            // 结果：["images", "products", "athletic-cotton-socks-6-pairs.jpg"]
 
-        {/* 第二个商品 */}
-        <div className="product-container">
-          <div className="product-image-container">
-            <img className="product-image" src={BasketballImg} alt="basketball" />
-          </div>
-          <div className="product-name limit-text-to-2-lines">
-            Intermediate Size Basketball
-          </div>
-          <div className="product-rating-container">
-            <img className="product-rating-stars" src={Rating40} alt="rating" />
-            <div className="product-rating-count link-primary">127</div>
-          </div>
-          <div className="product-price">$20.95</div>
-          <div className="product-quantity-container">
-            <select>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-            </select>
-          </div>
-          <div className="product-spacer"></div>
-          <div className="added-to-cart">
-            <img src={CheckmarkIcon} alt="checkmark" />
-            Added
-          </div>
-          <button className="add-to-cart-button button-primary">
-            Add to Cart
-          </button>
-        </div>
+            //pop()取数组的最后一个元素
+            const productImg = productImages[`../assets/images/products/${product.image.split("/").pop()}`]
+            // 4. 一行代码匹配评分图（直接拼文件名，清晰）
+            const ratingImg = ratingImages[`../assets/images/ratings/rating-${product.rating.stars * 10}.png`]
 
-        {/* 第三个商品 */}
-        <div className="product-container">
-          <div className="product-image-container">
-            <img className="product-image" src={TshirtImg} alt="tshirt" />
-          </div>
-          <div className="product-name limit-text-to-2-lines">
-            Adults Plain Cotton T-Shirt - 2 Pack
-          </div>
-          <div className="product-rating-container">
-            <img className="product-rating-stars" src={Rating45} alt="rating" />
-            <div className="product-rating-count link-primary">56</div>
-          </div>
-          <div className="product-price">$7.99</div>
-          <div className="product-quantity-container">
-            <select>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-            </select>
-          </div>
-          <div className="product-spacer"></div>
-          <div className="added-to-cart">
-            <img src={CheckmarkIcon} alt="checkmark" />
-            Added
-          </div>
-          <button className="add-to-cart-button button-primary">
-            Add to Cart
-          </button>
+            return (
+              <div key={product.id} className="product-container">
+                <div className="product-image-container">
+                  <img className="product-image" src={productImg} alt={product.name} />
+                </div>
+                <div className="product-name limit-text-to-2-lines">
+                  {product.name}
+                </div>
+                <div className="product-rating-container">
+                  {/* 直接用匹配到的评分图，加个兜底避免报错 */}
+                  <img 
+                    className="product-rating-stars" 
+                    src={ratingImg || ""} 
+                    alt="rating" 
+                  />
+                  <div className="product-rating-count link-primary">{product.rating.count}</div>
+                </div>
+                <div className="product-price">${(product.priceCents / 100).toFixed(2)}</div>
+                <div className="product-quantity-container">
+                  <select>
+                    {[...Array(10)].map((_, i) => (
+                      <option key={i + 1} value={i + 1}>{i + 1}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="product-spacer"></div>
+                <div className="added-to-cart">
+                  <img src={CheckmarkIcon} alt="checkmark" />
+                  Added
+                </div>
+                <button className="add-to-cart-button button-primary">
+                  Add to Cart
+                </button>
+              </div>
+            )
+          })}
         </div>
       </div>
-    </div>
     </>
-    )
+  )
 }
 
-export default HomePage;
+export default HomePage
