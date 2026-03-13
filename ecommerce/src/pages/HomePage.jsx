@@ -1,3 +1,4 @@
+import axios from "axios"
 import "./HomePage.css"
 import { Header } from "../component/Header"
 import CheckmarkIcon from "../assets/images/icons/checkmark.png"
@@ -14,7 +15,7 @@ import { products } from "../../starting-code/data/products"
 //asynchronous code:code does not finish right way,but in the future,it will finally work
 //That's why we have promises
 export function HomePage() {
-  fetch("http://localhost:3000/api/products")
+  axios.get("http://localhost:3000/api/products")
   //how promise works
     .then( (response) => {
       response.json().then((data) => {
