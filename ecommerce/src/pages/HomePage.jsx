@@ -11,7 +11,16 @@ const ratingImages = import.meta.glob("../assets/images/ratings/*.png", { eager:
 // 2. 直接用产品数据
 import { products } from "../../starting-code/data/products"
 
+//asynchronous code:code does not finish right way,but in the future,it will finally work
+//That's why we have promises
 export function HomePage() {
+  fetch("http://localhost:3000/api/products")
+  //how promise works
+    .then( (response) => {
+      response.json().then((data) => {
+        console.log(data)
+      })
+    })
   return (
     <>
       <title>Ecommerce Project</title>
